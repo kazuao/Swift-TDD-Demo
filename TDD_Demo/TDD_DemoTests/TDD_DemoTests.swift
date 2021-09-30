@@ -96,4 +96,20 @@ class TDD_DemoTests: XCTestCase {
         hand  = Hand(cards: [card1, card2])
         XCTAssertFalse(hand.isFlush)
     }
+    
+    func test_high_card() {
+        var card1: Card
+        var card2: Card
+        var hand:  Hand
+        
+        card1 = Card(rank: .king, suit: .spade)
+        card2 = Card(rank: .queen, suit: .spade)
+        hand  = Hand(cards: [card1, card2])
+        XCTAssertTrue(hand.isFlush)
+        
+        card1 = Card(rank: .queen, suit: .spade)
+        card2 = Card(rank: .king, suit: .heart)
+        hand  = Hand(cards: [card1, card2])
+        XCTAssertFalse(hand.isFlush)
+    }
 }

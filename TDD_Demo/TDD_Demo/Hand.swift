@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum IsWinnerStatus {
+    case LhsWin
+    case RhsWin
+    case Drow
+}
+
 struct Hand {
     let cards: [Card]
     
@@ -16,5 +22,13 @@ struct Hand {
     
     var isFlush: Bool {
         return cards[0].suit == cards[1].suit
+    }
+    
+    func isHight(lhs: Card, rhs: Card) -> IsWinnerStatus {
+        var status = IsWinnerStatus.Drow
+        
+        if lhs.rank >= rhs.rank {
+            
+        }
     }
 }
